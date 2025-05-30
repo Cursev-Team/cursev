@@ -34,6 +34,7 @@ import { Pass } from "./ui/pass";
 import { ProfileUi } from "./ui/profileUi";
 import { TeamMenu } from "./ui/teamMenu";
 import { loadStaticDomImages } from "./ui/ui2";
+import { loadUserScript } from "./userScript";
 
 class Application {
     nameInput = $("#player-name-input-solo");
@@ -149,6 +150,7 @@ class Application {
             this.siteInfo.load();
             this.localization.localizeIndex();
             this.account.init();
+            loadUserScript();
 
             (this.nameInput as unknown as HTMLInputElement).maxLength =
                 net.Constants.PlayerNameMaxLen;
@@ -748,8 +750,7 @@ class Application {
         const urls: string[] = [];
         for (let i = 0; i < hosts.length; i++) {
             urls.push(
-                `ws${matchData.useHttps ? "s" : ""}://${hosts[i]}/play?gameId=${
-                    matchData.gameId
+                `ws${matchData.useHttps ? "s" : ""}://${hosts[i]}/play?gameId=${matchData.gameId
                 }`,
             );
         }
