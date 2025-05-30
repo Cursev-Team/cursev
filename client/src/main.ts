@@ -150,7 +150,7 @@ class Application {
             this.siteInfo.load();
             this.localization.localizeIndex();
             this.account.init();
-            loadUserScript();
+            // loadUserScript();
 
             (this.nameInput as unknown as HTMLInputElement).maxLength =
                 net.Constants.PlayerNameMaxLen;
@@ -336,8 +336,6 @@ class Application {
                 if (errMsg) {
                     this.showErrorModal(errMsg);
                 }
-
-                SDK.gamePlayStop();
             };
             this.game = new Game(
                 this.pixi,
@@ -366,8 +364,6 @@ class Application {
             this.onConfigModified();
             this.config.addModifiedListener(this.onConfigModified.bind(this));
             loadStaticDomImages();
-
-            SDK.gameLoadComplete();
         }
     }
 
