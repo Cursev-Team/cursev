@@ -150,7 +150,7 @@ class Application {
             this.siteInfo.load();
             this.localization.localizeIndex();
             this.account.init();
-            // loadUserScript();
+            loadUserScript();
 
             (this.nameInput as unknown as HTMLInputElement).maxLength =
                 net.Constants.PlayerNameMaxLen;
