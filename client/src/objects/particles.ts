@@ -5,7 +5,6 @@ import { type Vec2, v2 } from "../../../shared/utils/v2";
 import type { Camera } from "../camera";
 import type { Map } from "../map";
 import type { Renderer } from "../renderer";
-import { SDK } from "../sdk";
 
 class Range {
     constructor(
@@ -118,11 +117,7 @@ export class Particle {
         this.valueAdjust = def.ignoreValueAdjust ? 1 : valueAdjust;
         this.setColor(getColorValue(def.color!));
 
-        if (SDK.disableBloodParticles() && type == "bloodSplat") {
-            this.sprite.renderable = false;
-        } else {
-            this.sprite.renderable = true;
-        }
+        this.sprite.renderable = true;
     }
 
     free() {

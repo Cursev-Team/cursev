@@ -1283,8 +1283,6 @@ export class UiManager {
     }
 
     removeAds() {
-        SDK.removeAllAds();
-
         if (!window.aiptag) return;
         const ads = ["728x90", "300x250_2"];
         for (let i = 0; i < ads.length; i++) {
@@ -1297,12 +1295,6 @@ export class UiManager {
 
     refreshMainPageAds() {
         const ads = ["728x90"];
-
-        if (SDK.isCrazyGames) {
-            for (let i = 0; i < ads.length; i++) {
-                SDK.requestAd(ads[i]);
-            }
-        }
 
         if (!window.aiptag) return;
         for (let i = 0; i < ads.length; i++) {
