@@ -1,4 +1,6 @@
+import { CrosshairDefs } from "./crosshairDefs";
 import { HealEffectDefs } from "./healEffectDefs";
+import { PassDefs } from "./passDefs";
 
 const _allowedHealEffects = Object.keys(HealEffectDefs);
 const _allowedMeleeSkins = [
@@ -368,6 +370,14 @@ export const UnlockDefs: Record<string, UnlockDef> = {
                 ...PassDefs.pass_survivr1.items.map((item) => item.item),
             ]),
             */
+            ...new Set([
+                ..._allowedOutfits,
+                ..._allowedMeleeSkins,
+                ..._allowedEmotes,
+                ..._allowedHealEffects,
+                ...Object.keys(CrosshairDefs),
+                ...PassDefs.pass_survivr1.items.map((item) => item.item),
+            ]),
         ],
     },
     unlock_new_account: {
